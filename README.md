@@ -1,4 +1,4 @@
-# Myproject
+# CipherSQL Studio
 
  This project is a browser-based SQL practice platform where users can attempt pre-defined SQL assignments and execute their queries in real time.
 
