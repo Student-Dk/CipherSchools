@@ -1,6 +1,6 @@
-# SQLPracticeStudio
+# CipherSchools
 
-SQLPracticeStudio is a browser-based SQL practice platform where users can attempt pre-defined SQL assignments and execute their queries in real time.
+ CipherSchools is a browser-based SQL practice platform where users can attempt pre-defined SQL assignments and execute their queries in real time.
 
 This project focuses on helping students practice SQL in a controlled sandbox environment with guided hints instead of full solutions.
 
