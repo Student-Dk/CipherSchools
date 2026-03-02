@@ -1,5 +1,5 @@
 import { GoogleGenerativeAI } from "@google/generative-ai";
-import Assignment from "../models/Assignment.js"; // 👈 Import Assignment model
+import Assignment from "../models/Assignment.js"; 
 const genAI = new GoogleGenerativeAI(process.env.GEMINI_API_KEY);
 
 export const generateHint = async (req, res) => {
