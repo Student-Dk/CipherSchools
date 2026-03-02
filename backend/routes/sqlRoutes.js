@@ -9,4 +9,3 @@ router.get("/schema/:id", getSchemaByAssignment);
 
 export default router;
 
-// router.get("/test", testConnection);

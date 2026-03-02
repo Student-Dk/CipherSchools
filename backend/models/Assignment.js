@@ -24,7 +24,7 @@ const assignmentSchema = new mongoose.Schema(
       required: true,
     },
     tables: {
-  type: [String], // e.g. ["students"], ["employees"]
+  type: [String],
   required: true,
 }
   },

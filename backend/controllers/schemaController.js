@@ -1,15 +1,14 @@
 import pool from "../config/postgres.js";
 import Assignment from "../models/Assignment.js";
-import format from "pg-format"; // npm install pg-format
+import format from "pg-format"; 
 
 export const getSchema = async (req, res) => {
   try {
-    const { assignmentId } = req.params; // ya req.body.assignmentId
+    const { assignmentId } = req.params; 
     if (!assignmentId) {
       return res.status(400).json({ error: "assignmentId is required" });
     }
 
-    // 1️⃣ Fetch assignment from MongoDB
     const assignment = await Assignment.findById(assignmentId);
     if (!assignment) {
       return res.status(404).json({ error: "Assignment not found" });
@@ -19,7 +18,6 @@ export const getSchema = async (req, res) => {
       return res.status(400).json({ error: "No tables defined for this assignment" });
     }
 
-    // 2️⃣ Fetch only tables for this assignment
     const tablesQuery = `
       SELECT table_name
       FROM information_schema.tables
@@ -28,7 +26,7 @@ export const getSchema = async (req, res) => {
     `;
     const tablesResult = await pool.query(tablesQuery, [assignment.tables]);
 
-    // 3️⃣ Loop through tables to get columns & sample data
+   
     const tables = await Promise.all(
       tablesResult.rows.map(async (table) => {
         const columnsQuery = `

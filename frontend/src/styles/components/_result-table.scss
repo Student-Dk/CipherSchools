@@ -4,17 +4,17 @@
   margin-top: 10px;
 
   th {
-    background-color: #e0e7ff; // Light Indigo
+    background-color: #e0e7ff; 
     padding: 8px;
     text-align: left;
   }
 
   td {
     padding: 8px;
-    border-top: 1px solid #c7d2fe; // Lighter border
+    border-top: 1px solid #c7d2fe; 
   }
 
   tr:nth-child(even) {
-    background-color: #f3f4f6; // Stripe effect
+    background-color: #f3f4f6; 
   }
 }

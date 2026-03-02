@@ -14,7 +14,7 @@ export const verifyToken = (req, res, next) => {
 
     req.adminId = decoded.id;
 
-    next(); // next controller ko call karega
+    next();
 
   } catch (error) {
     return res.status(401).json({ message: "Invalid token" });

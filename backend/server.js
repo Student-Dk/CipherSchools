@@ -14,7 +14,7 @@ connectDB();
 
 const app = express();
 
-// app.use(cors());
+
 app.use(cors({
   origin: "http://localhost:5173",
   credentials: true,
@@ -23,19 +23,17 @@ app.use(express.json());
 
 app.use("/api/assignments", assignmentRoutes);
 
-//------------------
+
 app.use("/api/auth", authRoutes);
 
-//-----------------------
+
 
 app.use("/api/sql", sqlRoutes);
 
-//
+
 
 app.use("/api/schema", schemaRoutes);
 
-
-//--------------------
 app.use("/api/gemini", geminiRoutes);
 
 app.get("/", (req, res) => {

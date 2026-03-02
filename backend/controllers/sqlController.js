@@ -1,7 +1,7 @@
-// controllers/sqlController.js
+
 import format from "pg-format";
 import pool from "../config/postgres.js";
-import Assignment from "../models/Assignment.js"; // 👈 Import Assignment model
+import Assignment from "../models/Assignment.js";
 
 export const executeQuery = async (req, res) => {
   try {
@@ -11,7 +11,7 @@ export const executeQuery = async (req, res) => {
       return res.status(400).json({ error: "Query and assignmentId required" });
     }
 
-    // ✅ Fetch assignment from MongoDB
+
     const assignment = await Assignment.findById(assignmentId);
     if (!assignment) {
       return res.status(404).json({ error: "Assignment not found" });
@@ -23,14 +23,11 @@ export const executeQuery = async (req, res) => {
       return res.status(403).json({ error: "Only SELECT queries are allowed" });
     }
 
-    // Optional: Check if query is using allowed tables only
-    // For simplicity, assume assignment.tables contains allowed table names
     const tableNames = assignment.tables || [];
     if (!tableNames.some((t) => trimmedQuery.includes(t.toLowerCase()))) {
       return res.status(403).json({ error: "Query uses disallowed table" });
     }
 
-    // Execute query
     const result = await pool.query(query);
 
     res.status(200).json({
@@ -50,11 +47,11 @@ export const getSchemaByAssignment = async (req, res) => {
   try {
     const { id } = req.params;
 
-    // 1️⃣ MongoDB se assignment fetch karo
+
     const assignment = await Assignment.findById(id);
     if (!assignment) return res.status(404).json({ error: "Assignment not found" });
 
-    // 2️⃣ PostgreSQL se sirf assignment ke tables fetch karo
+
     const tablesQuery = `
       SELECT table_name
       FROM information_schema.tables
@@ -101,22 +98,3 @@ export const testConnection = async (req, res) => {
 };
 
 
-// export const executeQuery = async (req, res) => {
-//   try {
-//     const { query } = req.body;
-
-//     if (!query) {
-//       return res.status(400).json({ error: "Query is required" });
-//     }
-
-//     const result = await pool.query(query);
-
-//     res.status(200).json({
-//       rows: result.rows,
-//       rowCount: result.rowCount,
-//     });
-
-//   } catch (error) {
-//     res.status(500).json({ error: error.message });
-//   }
-// };
