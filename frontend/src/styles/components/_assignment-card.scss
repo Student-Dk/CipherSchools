@@ -1,0 +1,51 @@
+.assignment-list__grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 16px;
+}
+
+.assignment-card {
+  background-color: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 8px;
+  padding: 16px;
+  cursor: pointer;
+  transition: transform 0.2s, box-shadow 0.2s;
+
+  &:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  }
+
+  &__title {
+    font-size: 18px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    color: #1f2937;
+  }
+
+  &__description {
+    font-size: 14px;
+    color: #4b5563;
+    margin-top: 8px;
+  }
+
+  &__difficulty {
+    display: inline-block;
+    padding: 4px 8px;
+    border-radius: 4px;
+    font-size: 12px;
+    font-weight: 500;
+    color: white;
+
+    &--Easy {
+      background-color: #10b981;
+    }
+    &--Medium {
+      background-color: #f59e0b;
+    }
+    &--Hard {
+      background-color: #ef4444;
+    }
+  }
+}

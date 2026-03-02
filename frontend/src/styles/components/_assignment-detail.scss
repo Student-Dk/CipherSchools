@@ -1,0 +1,38 @@
+.assignment-detail {
+  padding: 16px;
+
+  &__title {
+    font-size: 24px;
+    margin-bottom: 12px;
+    font-weight: 700;
+  }
+
+  &__container {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+
+    @media screen and (min-width: 768px) {
+      flex-direction: row;
+    }
+  }
+
+  &__left, &__right {
+    flex: 1;
+  }
+
+  &__left {
+    p {
+      margin-bottom: 8px;
+    }
+
+    table {
+      margin-bottom: 16px;
+    }
+  }
+
+  &__error {
+    color: red;
+    margin-top: 8px;
+  }
+}
